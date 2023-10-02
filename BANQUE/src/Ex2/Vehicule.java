@@ -10,12 +10,17 @@ public class Vehicule {
     public String carburant;
     private Personne proprietaire;
     
-    public void changer_Matricule(String mat){
+    public void changer_Matricule(String mat , String marque , String modele , String carburant){
         this.matricule = mat;
+        this.marque = marque;
+        this.modele = modele;
+        this.carburant = carburant;
     }
+    
     public void changer_Date(String date){
         this.dateDeProduction = date;
     }
+    
     public void changer_Puissance(int puiss){
         this.puissance = puiss;
     }
