@@ -1,7 +1,7 @@
 package Ex2;
 
 
-public class Test {
+public class ParcAuto {
      public static void main(String args[]){
          Personne Asma = new Personne();
          Vehicule SaVoiture = new Vehicule();
