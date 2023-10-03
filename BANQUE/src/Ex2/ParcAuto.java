@@ -8,7 +8,7 @@ public class ParcAuto {
          
          Asma.init_Personne("Farhat", "Asma");
          Asma.changer_Adresse("5, rue des oliviers Tunis");
-         Asma.afficher_Homme();
+         // Asma.afficher_Homme();
          
          SaVoiture.changer_proprietaire(Asma);
          SaVoiture.changer_Couleur(44);
