@@ -9,6 +9,10 @@ public class Chat {
         this.age = a;
     }
 
+    public void setAge(){
+        this.age += 1;
+    }
+
     public int getAge (){
         return this.age;
     }
@@ -37,7 +41,7 @@ public class Chat {
         System.out.println("Bonjour, je suis le chat " + this.nom);
         Miaouller();
         System.out.println("J’ai " + this.age);
-        System.out.println("Je pèse " + this.poids);
+        System.out.println("Je pèse " + this.poids+" kg");
     }
 
 }
