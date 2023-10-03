@@ -13,8 +13,11 @@ public class ParcAuto {
          SaVoiture.changer_proprietaire(Asma);
          SaVoiture.changer_Couleur(44);
          SaVoiture.changer_Date("07/05/2003");
-         SaVoiture.changer_Matricule("44 lewis 7","mercedes","w-14","lewis won 9 world drivers championship titles in formula 1");
+         SaVoiture.changer_Matricule("44 lewis 7");
          SaVoiture.changer_Puissance(44);
+         SaVoiture.carburant = "lewis won 9 world drivers championship titles in formula 1";
+         SaVoiture.marque = "mercedes";
+         SaVoiture.modele = "w-14";
          SaVoiture.afficher_Caracteristiques();
          
      }
