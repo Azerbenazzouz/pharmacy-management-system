@@ -10,7 +10,8 @@ public class OEuvre {
     private float tarif;
 
     public OEuvre(String titre , String réalisateur , String genre , int nombreCopiesDisponibles){
-        this.annéeAcquisition = new Date().getDate().getAnnee();
+        new Date();
+        this.annéeAcquisition = Date.getDate().getAnnee();
         this.tarif = 1;
         this.titre = titre;
         this.réalisateur = réalisateur;
