@@ -1,11 +1,11 @@
 package DS;
 
 public class Consultation {
-    enum Typelogie{
+    enum Typelogie {
         Rembourse,
         MedecinDeFamille
     }
-    
+
     private int codeCons;
     private String nomPrePatient;
     private Date dateCons;
@@ -28,13 +28,15 @@ public class Consultation {
     }
 
     public float calculerTarifCons(){
-        if(this.leMedecin.codeCnam != 0){
-            if(this.regimeCnamPatient == Typelogie.MedecinDeFamille) return leMedecin.tarif /2;
+        if (this.leMedecin.codeCnam != 0) {
+            if (this.regimeCnamPatient == Typelogie.MedecinDeFamille)
+                return leMedecin.tarif / 2;
         }
         return leMedecin.tarif;
     }
 
-    public void afficher(){
-        System.out.println("Nom et Prenom : "+ nomPrePatient + "\nDate consultation : " + dateCons.toString()+"\n"+ this.leMedecin.toString());
+    public void afficher() {
+        System.out.println("Nom et Prenom : " + nomPrePatient + "\nDate consultation : " + dateCons.toString() + "\n"
+                + this.leMedecin.toString());
     }
 }
