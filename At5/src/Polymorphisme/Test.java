@@ -1,6 +1,5 @@
 package Polymorphisme;
 
-import javax.print.Doc;
 
 import Polymorphisme.Roman.PrixLitteraire;
 
