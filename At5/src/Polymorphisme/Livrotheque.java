@@ -7,22 +7,22 @@ public class Livrotheque {
         this.documents = new Livre[capacite];
     }
 
-    public void afficherDocuments(){
-        for(Livre doc : documents){
-            if(doc != null){
+    public void afficherDocuments() {
+        for (Livre doc : documents) {
+            if (doc != null) {
                 System.out.println(doc.toString());
                 System.out.println("====================================");
             }
         }
     }
 
-    public Livre document(int i){
+    public Livre document(int i) {
         return documents[i];
     }
 
-    public boolean ajouter(Livre doc){
-        for(int i = 0; i < documents.length; i++){
-            if(documents[i] == null){
+    public boolean ajouter(Livre doc) {
+        for (int i = 0; i < documents.length; i++) {
+            if (documents[i] == null) {
                 documents[i] = doc;
                 return true;
             }
@@ -30,9 +30,9 @@ public class Livrotheque {
         return false;
     }
 
-    public boolean supprimer(Livre doc){
-        for(int i = 0; i < documents.length; i++){
-            if(documents[i] == doc){
+    public boolean supprimer(Livre doc) {
+        for (int i = 0; i < documents.length; i++) {
+            if (documents[i] == doc) {
                 documents[i] = null;
                 return true;
             }
@@ -40,9 +40,9 @@ public class Livrotheque {
         return false;
     }
 
-    public void afficherAuteurs(){
-        for(Livre doc : documents){
-            System.out.println(((Livre) doc).getAuteur());
+    public void afficherAuteurs() {
+        for (Livre doc : documents) {
+            System.out.println(doc.getAuteur());
             System.out.println("====================================");
         }
     }
