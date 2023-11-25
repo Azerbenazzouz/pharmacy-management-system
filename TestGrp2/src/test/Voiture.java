@@ -13,7 +13,8 @@ public abstract class Voiture {
     private float prixLocation;
     private etatVoiture etat;
 
-    public Voiture(String marque , float prixLocation) {
+    public Voiture(int idVoiture ,String marque , float prixLocation) {
+        this.idVoiture = idVoiture;
         this.marque = marque;
         this.prixLocation = prixLocation;
     }
@@ -49,8 +50,8 @@ public abstract class Voiture {
 class VoitureDeLuxe extends Voiture {
     private float montSupp;
 
-    public VoitureDeLuxe(String marque , float prixLocation , float montSupp) {
-        super(marque , prixLocation);
+    public VoitureDeLuxe( int idVoiture , String marque , float prixLocation , float montSupp) {
+        super(idVoiture , marque , prixLocation);
         this.montSupp = montSupp;
     }
 
@@ -67,8 +68,8 @@ class VoitureSport extends Voiture {
     private float montRéduction;
     private String vitesseMaximale;
 
-    public VoitureSport(String marque , float prixLocation , float montRéduction , String vitesseMaximale) {
-        super(marque , prixLocation);
+    public VoitureSport( int idVoiture , String marque , float prixLocation , float montRéduction , String vitesseMaximale) {
+        super(idVoiture , marque , prixLocation);
         this.montRéduction = montRéduction;
         this.vitesseMaximale = vitesseMaximale;
     }
@@ -85,7 +86,6 @@ class VoitureSport extends Voiture {
 
 class AgenceLocation {
     private String nomAgence;
-    // private Voiture[] tabVoiture;
     private List<Voiture> tabVoiture= new ArrayList<Voiture>();
 
     public AgenceLocation(String nomAgence ) {
@@ -131,6 +131,10 @@ class AgenceLocation {
             }
         }
         return tab;
+    }
+
+    public String getNomAgence() {
+        return this.nomAgence;
     }
     
 }
