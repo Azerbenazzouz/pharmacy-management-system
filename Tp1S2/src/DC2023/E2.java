@@ -1,5 +1,6 @@
 package DC2023;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -106,7 +107,8 @@ class Session{
        if(this.lesSoutenances.containsKey(s.getEtudiant())){
             Scanner sc = new Scanner(System.in);
             System.out.println("Donner un note : ");
-            s.setNoteSoutenance(sc.nextInt());
+            float note = sc.nextFloat();
+            s.setNoteSoutenance(note);
             this.lesSoutenances.put(s.getEtudiant(), s);
        }else{
            System.out.println("Soutenance n'exste pas...");
@@ -117,13 +119,13 @@ class Session{
         //Iterator<Map.Entry<Etudiant,Soutenance>> iter = this.lesSoutenances.entrySet().iterator();
         //while(iter.hasNext()){
         //    Soutenance S = iter.next().getValue();
-        //    if(S.getNoteSoutenance() == matricule){
+        //    if(S.getEtudiant().getMatricule() == matricule){
         //        return S;
         //    }
         //}
         for (Map.Entry<Etudiant, Soutenance> entrySet : lesSoutenances.entrySet()) {
             Soutenance S = entrySet.getValue();
-            if(S.getNoteSoutenance() == matricule){
+            if(S.getEtudiant().getMatricule() == matricule){
                 return S;
             }
             
@@ -145,21 +147,57 @@ class Session{
     }
     
     public void afficherMeilleureSoutenanceValidée(){
-        ArrayList<Soutenance> LSV = this.lesSoutenancesValidées();
-        Iterator<Soutenance> iter = LSV.iterator();
-        float moy = 0;
+        Iterator<Soutenance> iter = this.lesSoutenancesValidées().iterator();
         Soutenance s = null;
         Soutenance sm = null;
-        sm.setNoteSoutenance(0);
+        
         while(iter.hasNext()){
+            if(sm == null && s == null){
+                sm = iter.next();
+                s=sm;
+            }
             s = iter.next();
             if(sm.compareTo(s) == -1){
                 sm=s;
             }
         }
-        sm.toString();
+        System.out.println(sm.getNoteSoutenance());
     }
 }
 public class E2 {
-    
+    public static void main(String[] args) {
+        Etudiant E1 = new Etudiant(7, "Azer");
+        Etudiant E2 = new Etudiant(44, "Lewis");
+        Etudiant E3 = new Etudiant(1, "kimi");
+        
+        
+        Soutenance S1 = new Soutenance(1, Date.from(Instant.EPOCH), TResultat.validé, 17.6f, E1);
+        Soutenance S2 = new Soutenance(2, Date.from(Instant.EPOCH), TResultat.validé, 17.44f, E2);
+        Soutenance S3 = new Soutenance(3, Date.from(Instant.EPOCH), TResultat.nonValidé, 1.6f, E3);
+        
+        Session Ss1 = new Session("777", Date.from(Instant.EPOCH));
+        
+        Ss1.ajouterSoutenance(S1);
+        Ss1.ajouterSoutenance(S2);
+        Ss1.ajouterSoutenance(S3);
+        
+        Ss1.modifierResultat(S3);
+        
+        System.out.println("Avoir Resultat 1 : ");
+        System.out.println(Ss1.avoirResultat(1).toString());
+        System.out.println("-------------------------------------------");
+        
+        System.out.println("les Soutenances Validées : ");
+        Iterator<Soutenance> s = Ss1.lesSoutenancesValidées().iterator();
+        while(s.hasNext()){
+            Soutenance ss = s.next();
+            System.out.println(ss.toString());
+        }
+        System.out.println("-------------------------------------------");
+        
+        System.out.println("Meilleure Soutenance Validée : ");
+        Ss1.afficherMeilleureSoutenanceValidée();
+        System.out.println("-------------------------------------------");        
+        
+    }
 }
