@@ -3,18 +3,21 @@ package Comptabilité;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeSet;
-enum type {
-    espèce,
-    chèque,
-    traite
-}
+
+
 public class Paiement {
+    public enum type {
+        espèce,
+        chèque,
+        traite
+    }
     private Date date;
     private TreeSet<Facture> LesFactures = new TreeSet<>();
 
     public Paiement(Date date) {
         this.date = date;
     }
+    
     
     public Facture chercher(int num){
         Iterator<Facture> iter = this.LesFactures.iterator();

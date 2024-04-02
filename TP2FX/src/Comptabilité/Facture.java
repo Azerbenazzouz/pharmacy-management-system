@@ -4,6 +4,12 @@ public class Facture implements Comparable<Facture>{
     private int num;
     private float montantHorsTaxe;
     private float TVA;
+
+    public Facture(int num, float montantHorsTaxe, float TVA) {
+        this.num = num;
+        this.montantHorsTaxe = montantHorsTaxe;
+        this.TVA = TVA;
+    }
     
     public float calculMontant(){
          return (this.montantHorsTaxe *(100+this.TVA)/100);
