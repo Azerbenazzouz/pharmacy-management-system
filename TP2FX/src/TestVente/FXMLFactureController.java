@@ -8,7 +8,6 @@ package testVente;
 import Comptabilité.Facture;
 import Comptabilité.Paiement;
 import java.net.URL;
-import java.time.Instant;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

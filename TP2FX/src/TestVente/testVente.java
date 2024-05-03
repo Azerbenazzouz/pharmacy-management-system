@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testvend;
+package testVente;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class TestVend extends Application {
+public class testVente extends Application {
     
     
     @Override
