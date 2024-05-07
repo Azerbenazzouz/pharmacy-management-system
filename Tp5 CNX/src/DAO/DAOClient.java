@@ -86,6 +86,7 @@ public class DAOClient {
     
     public static boolean ajouter(Client c){        
         String req = "INSERT INTO `client` (`codeCli`, `nomCli`, `adresseCli`, `emailCli`) VALUES ('?', '?', '?', '?');";
+        
         try{
             PreparedStatement ps = cn.prepareStatement(req);
             ps.setString(1, c.getCodeCli());
@@ -93,15 +94,21 @@ public class DAOClient {
             ps.setString(3, c.getAdresseCli());
             ps.setString(4, c.getEmailCli());
 
-            ps.executeQuery(req);
-            ps.close();
+            ps.executeUpdate(req);
+            
             System.out.println("consultation ok...");
+            ps.close();
             return true;
         }catch(SQLException e){
             System.out.println("Probleme de consultation ...");
         }
         
         return false;
+    }
+    
+    public static boolean changerAdress(Client c , String nvAdresse){
+        
+        return true;
     }
     
 }

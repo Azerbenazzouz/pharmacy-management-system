@@ -1,4 +1,4 @@
-package entite;
+package dao;
 
 public class DaoUtilisateur implements IDaoUtilisateur{
     private int id;
