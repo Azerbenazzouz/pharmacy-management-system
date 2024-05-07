@@ -1,14 +1,13 @@
 package dao;
-enum Role {
-    ADMIN, UTILISATEUR
-}
+import entite.Utilisateur;
+
 public interface IDaoUtilisateur {
     
-    public boolean authentifier(String email, String motDePasse);
-    public boolean creerCompte(IDaoUtilisateur utilisateur);
-    public void modifierCompte(IDaoUtilisateur utilisateur);
-    public boolean supprimerCompte(String email , String motDePasse);
-    public IDaoUtilisateur consulterCompte(String email);
-    public boolean modifierMotDePasse(String email, String motDePasse, String nouveauMotDePasse);
+    public boolean authentifier();
+    public boolean creerCompte();
+    public void modifierCompte();
+    public boolean supprimerCompte();
+    public Utilisateur consulterCompte();
+    public boolean modifierMotDePasse();
     
 }
