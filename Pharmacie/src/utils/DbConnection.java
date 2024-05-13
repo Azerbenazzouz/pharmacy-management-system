@@ -10,7 +10,7 @@ public class DbConnection {
     public static Connection seConnecter(){
         if(con == null ){
             try {
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/zouuPharmacie", "root", "");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacyJava", "root", "");
                 System.out.println("Connexion etablie....");
             }catch(SQLException ex){
                 System.out.println("db non trouve ..."+ex.getMessage());

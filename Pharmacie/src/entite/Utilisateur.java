@@ -9,11 +9,12 @@ public class Utilisateur {
     private String email;
     private String motDePasse;
     private int telephone;
+    private String role;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(int id, String nom, String email, String motDePasse, int telephone) {
+    public Utilisateur(int id, String nom, String email, String motDePasse, int telephone, String role) {
         this.id = id;
         this.nom = nom;
         this.email = email;
@@ -21,7 +22,7 @@ public class Utilisateur {
         this.telephone = telephone;
     }
 
-    public Utilisateur(String nom, String email, String motDePasse, int telephone) {
+    public Utilisateur(String nom, String email, String motDePasse, int telephone, String role) {
         this.nom = nom;
         this.email = email;
         this.motDePasse = hashMotDePasse(motDePasse);
@@ -71,6 +72,14 @@ public class Utilisateur {
 
     public void setTelephone(int telephone) {
         this.telephone = telephone;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
