@@ -42,8 +42,26 @@ public class DaoUtilisateur implements IDaoUtilisateur{
     
     @Override
     public boolean creerCompte() {
+        if( utilisateur.getEmail().equals("") || utilisateur.getMotDePasse().equals("") ){
+            return false;
+        }
+        try{
+            String sql = "INSERT INTO utilisateur(nom, email, password, telephone, role) VALUES(?, ?, ?, ?, ?)";
+            PreparedStatement pst = cnn.prepareStatement(sql);
+            pst.setString(1, utilisateur.getNom());
+            pst.setString(2, utilisateur.getEmail());
+            pst.setString(3, utilisateur.getMotDePasse());
+            pst.setInt(4, utilisateur.getTelephone());
+            pst.setString(5, utilisateur.getRole());
+            int result = pst.executeUpdate();
+            if(result > 0){
+                return true;
+            }
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("Erreur de creation de compte ..."+ex.getMessage());
+        }
         return false;
-        // Implement the method here
     }
 
     @Override
